@@ -7,7 +7,13 @@
 using namespace std;
 
 static void question_2() {
-
+    Tuit tuit;
+    tuit.load_from("in_file_1.txt")
+        .save_to("out_file_2.txt");
+    ifstream result("out_file_2.txt");
+    string line;
+    while(getline(result, line))
+        cout << line << endl;
 }
 
 TEST_CASE("Question #2") {

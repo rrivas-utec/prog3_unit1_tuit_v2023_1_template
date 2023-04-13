@@ -1,3 +1,23 @@
 #input
 #output
+    ====================
+    @JuanPerez
+    Este es un tuit de prueba
+    --------------------
+    :)
+    imagen1.png
+    ====================
+    @MariaDiaz
+    Respuesta a primer tuit
+    --------------------
+    <3
+    ====================
+    @PedroRamos
+    Segunda respuesta del tuit
+    --------------------
+    :))
+    Seleccione la opcion
+    - Opcion A
+    - Opcion B
+    - Opcion C
 #endtest

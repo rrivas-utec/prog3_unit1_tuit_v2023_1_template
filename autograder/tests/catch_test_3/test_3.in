@@ -1,3 +1,11 @@
 #input
 #output
+    Tuit|JuanPerez|Este es un tuit de prueba
+    Emoji|1|:)|1
+    Emoji|2|imagen1.png
+    Tuit|MariaDiaz|Respuesta a primer tuit
+    Emoji|1|<3|1
+    Tuit|PedroRamos|Respuesta a primer tuit
+    Emoji|1|:))|1
+    Poll|Seleccionar opcion|Opcion A,Opcion B,Opcion C|1|0|0
 #endtest

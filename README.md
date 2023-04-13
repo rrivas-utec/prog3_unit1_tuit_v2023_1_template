@@ -18,28 +18,35 @@ El modelo deberá contar con las características descritas en el diagrama, adem
 **Use Case #1: Leer un archivo**
 ```c++
 Tuit tuit;
-tuit.load("file1.txt");
-cout << tuit;
+tuit.load_from("in_file_1.txt")
+    .show(cout);
 ```
 
 **Use Case #2: Leer de un archivo**
 ```c++
 Tuit tuit;
-ifstream in("file2.txt");
-in >> tuit;
-cout << tuit;
+tuit.load_from("in_file_1.txt")
+    .save_to("out_file_2.txt");
+ifstream result("out_file_2.txt");
+string line;
+while(getline(result, line))
+    cout << line << endl;
 ```
 
 **Use Case #3: Grabar en un archivo**
 ```c++
 Tuit tuit;
-ifstream in("file3.txt");
-archivo >> tuit;
-ofstream out("file4.txt");
+ifstream in("in_file_1.txt");
+in >> tuit;
+ofstream out("out_file_3.txt");
 out << tuit;
+ifstream result("out_file_3.txt");
+string line;
+while(getline(result, line))
+    cout << line << endl;
 ```
 
-**Use Case #4: grabar en un archivo **
+**Use Case #4: grabar en un archivo**
 ```c++
 Tuit tuit1("Juan Perez", "Este es un tuit de prueba");
 tuit1
@@ -54,15 +61,20 @@ Tuit tuit3 ("Pedro Ramos", "Segunda respuesta del tuit");
 tuit3
     .add_element(new Emoji(1, ":))", 1))
     .add_element(new Poll(2, "Seleccione la opcion",
-        {"Opcion A",
-         "Opcion B",
-         "Opcion C"}, 1, 0, 0));
+        {   "Opcion A",
+            "Opcion B",
+            "Opcion C"}, 1, 0, 0));
 tuit1
-    .reply(tuit2)
-    .reply(tuit3);
+    .add_reply(tuit2)
+    .add_reply(tuit3);
 
 tuit1
-    .save("file5.txt")
+    .save_to("out_file_4.txt");
+
+ifstream result("out_file_4.txt");
+string line;
+while(getline(result, line))
+    cout << line << endl;
 ```
 
 **Use Case #5: mostrar tuit y su thread**
@@ -80,15 +92,13 @@ Tuit tuit3 ("PedroRamos", "Segunda respuesta del tuit");
 tuit3
     .add_element(new Emoji(1, ":))", 1))
     .add_element(new Poll(2, "Seleccione la opcion",
-        {"Opcion A",
-         "Opcion B",
-         "Opcion C"}, 1, 0, 0));
+                          {"Opcion A",
+                           "Opcion B",
+                           "Opcion C"}, 1, 0, 0));
 tuit1
-    .reply(tuit2)
-    .reply(tuit3);
-
-tuit1
-    .show(cout)
+    .add_reply(tuit2)
+    .add_reply(tuit3)
+    .show(cout);
 ```
 
 ## Estructura de archivos
